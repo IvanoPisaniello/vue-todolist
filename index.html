@@ -34,11 +34,15 @@
                             @keyup.enter="addToDoItem()">
                     </div>
                     <ul class="list-group">
-                        <li class=" list-group-item" v-for="(target, i) in toDoList" @click="onItemClick()"
+                        <li class=" list-group-item" v-for="(target, i) in toDoList" @click="onItemClick(i)"
                             v-bind:class="newItem.done === 'true' ? 'line-through' : ''">
-                            {{target.id}} {{target.text}}
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-outline-secondary" @click="onBarrClick">DONE</button>
 
-                            <div class="d-flex justify-content-end">
+
+                                {{target.id}} {{target.text}}
+
+
                                 <button class="btn btn-link text-danger py-0" @click="onDeleteClick(tagetId)"><i
                                         class="fa-solid fa-square-xmark"></i></button>
                             </div>
