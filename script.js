@@ -8,19 +8,19 @@ const app = Vue.createApp({
                 {
                     id: 1,
                     text: "target 1",
-                    done: true,
+                    done: false,
 
                 },
                 {
                     id: 2,
                     text: "target 2",
-                    done: true,
+                    done: false,
 
                 },
                 {
                     id: 3,
                     text: "target 3",
-                    done: true,
+                    done: false,
 
                 }
             ],
@@ -28,7 +28,7 @@ const app = Vue.createApp({
             newItem: {
                 id: "",
                 text: "",
-                done: "",
+                done: "false",
             },
             barred: "",
         }
@@ -41,8 +41,13 @@ const app = Vue.createApp({
 
             this.toDoList.push(itemClone);
         },
-        onItemClick() {
+        onItemClick(targetId) {
             this.barred = "line-through";
+            this.newItem.done = "true";
+            //trovo l'indice ad ogni ID
+            let indexItem = this.toDoList.findIndex((target) => target.id === targetId);
+            console.log(indexItem)
+
         }
 
     },

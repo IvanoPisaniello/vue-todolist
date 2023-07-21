@@ -34,7 +34,7 @@
                             @keyup.enter="addToDoItem()">
                     </div>
                     <ul class="list-group">
-                        <li class=" list-group-item" v-for="(target, i) in toDoList" @click="onItemClick"
+                        <li class=" list-group-item" v-for="(target, i) in toDoList" @click="onItemClick(target.id)"
                             v-bind:class="barred">
                             {{target.id}} {{target.text}}
 
