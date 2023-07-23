@@ -42,6 +42,7 @@ const app = Vue.createApp({
 
             console.log(itemClone)
             this.toDoList.push(itemClone);
+            this.newItem.text = "";
 
         },
         // onItemClick(i) {

@@ -27,7 +27,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-5">
+                    <h1 class="text-center text-light mt-4">TODO LIST</h1>
                     <div class="input-group mb-3 mt-5">
+
                         <span class="input-group-text" id="inputGroup-sizing-default">To Do</span>
 
                         <input type="text" class="form-control" aria-label="Sizing example input"
@@ -39,7 +41,7 @@
                             v-bind:class="target.done ? 'line-through' : ''">
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-secondary" @click="onDoneClick(target)"
-                                    v-bind:doneId="target.id">DONE</button>
+                                    v-bind:doneId="target.id"><i class="fa-solid fa-check text-success"></i></button>
 
 
                                 <p>
@@ -47,8 +49,8 @@
                                     {{target.text}}</p>
 
 
-                                <button class="btn btn-link text-danger py-0" @click="onDeleteClick(target.id)"><i
-                                        class="fa-solid fa-square-xmark"></i></button>
+                                <button class="btn btn-outline-danger py-0" @click="onDeleteClick(target.id)"><i
+                                        class="fa-solid fa-square-xmark fs-5"></i></button>
                             </div>
                         </li>
                     </ul>
