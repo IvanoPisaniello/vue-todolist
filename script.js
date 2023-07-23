@@ -40,7 +40,7 @@ const app = Vue.createApp({
         addToDoItem() {
             const itemClone = { ...this.newItem, id: ++this.lastId };
 
-
+            console.log(itemClone)
             this.toDoList.push(itemClone);
 
         },
