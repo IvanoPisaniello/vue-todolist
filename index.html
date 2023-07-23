@@ -29,21 +29,25 @@
                 <div class="col-5">
                     <div class="input-group mb-3 mt-5">
                         <span class="input-group-text" id="inputGroup-sizing-default">To Do</span>
+
                         <input type="text" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-default" v-model="newItem.text"
                             @keyup.enter="addToDoItem()">
                     </div>
                     <ul class="list-group">
-                        <li class=" list-group-item" v-for="(target, i) in toDoList" @click="onItemClick(i)"
-                            v-bind:class="newItem.done === 'true' ? 'line-through' : ''">
+                        <li class=" list-group-item" v-for="(target, i) in toDoList "
+                            v-bind:class="target.done ? 'line-through' : ''">
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-secondary" @click="onBarrClick">DONE</button>
+                                <button class="btn btn-outline-secondary" @click="onDoneClick(target)"
+                                    v-bind:doneId="target.id">DONE</button>
 
 
-                                {{target.id}} {{target.text}}
+                                <p>
+                                    {{target.id}}
+                                    {{target.text}}</p>
 
 
-                                <button class="btn btn-link text-danger py-0" @click="onDeleteClick(tagetId)"><i
+                                <button class="btn btn-link text-danger py-0" @click="onDeleteClick()"><i
                                         class="fa-solid fa-square-xmark"></i></button>
                             </div>
                         </li>

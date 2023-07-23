@@ -24,13 +24,15 @@ const app = Vue.createApp({
 
                 // }
             ],
-            lastId: 3,
+            lastId: 0,
             newItem: {
                 id: "",
                 text: "",
-                done: "false",
+                done: false,
             },
-            barred: "line-through",
+            doneId: "null",
+
+
         }
     },
 
@@ -40,23 +42,39 @@ const app = Vue.createApp({
 
 
             this.toDoList.push(itemClone);
+
         },
         // onItemClick(i) {
         //     this.newItem.done = "true";
 
-        //     // console.log(indexItem)
+        //     
 
         // },
         onDeleteClick(targetId) {
             // trovo l'indice ad ogni ID
             let indexItem = this.toDoList.findIndex((target) => target.id === targetId);
             this.toDoList.splice(indexItem, 1);
+            console.log(indexItem)
         },
-        onBarrClick() {
-            this.newItem.done = "true";
-        }
+        onDoneClick(target) {
+            for (let i = 0; i < this.toDoList.length; i++) {
 
 
+                if (this.toDoList[i] === target) {
+                    this.toDoList[i].done = true;
+                }
+
+            }
+
+
+
+            console.log(this.doneId);
+        },
+
+        onItemClick() {
+            // this.newItem.done = "false";
+
+        },
 
     },
 })
